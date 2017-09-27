@@ -40,14 +40,14 @@ action_class do
 
   def installed?
     @installed ||= begin
-      cmd = powershell_out("(Get-WindowsFeature #{to_array(new_resource.feature_name).join(',')} | ?{$_.InstallState -ne \'Installed\'}).count")
+      cmd = powershell_out("(Get-WindowsFeature #{to_array(new_resource.feature_name).join(',')} | ?{$_.Installed -ne $TRUE}).count")
       cmd.stderr.empty? && cmd.stdout.chomp.to_i == 0
     end
   end
 
   def available?
     @available ||= begin
-      cmd = powershell_out("(Get-WindowsFeature #{to_array(new_resource.feature_name).join(',')} | ?{$_.InstallState -ne \'Removed\'}).count")
+      cmd = powershell_out("(Get-WindowsFeature #{to_array(new_resource.feature_name).join(',')} | ?{$_.Installed -ne $FALSE}).count")
       cmd.stderr.empty? && cmd.stdout.chomp.to_i > 0
     end
   end
