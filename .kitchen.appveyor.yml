@@ -18,18 +18,18 @@ verifier:
   name: pester
 
 suites:
-  - name: certificate
-    run_list:
-      - recipe[test::certificate]
+  # - name: certificate
+  #   run_list:
+  #     - recipe[test::certificate]
   - name: feature
     run_list:
       - recipe[test::feature]
-  - name: http_acl
-    run_list:
-      - recipe[test::http_acl]
-  - name: font
-    run_list:
-      - recipe[test::font]
-  - name: pagefile
-    run_list:
-      - recipe[test::pagefile]
+  # - name: http_acl
+  #   run_list:
+  #     - recipe[test::http_acl]
+  # - name: font
+  #   run_list:
+  #     - recipe[test::font]
+  # - name: pagefile
+  #   run_list:
+  #     - recipe[test::pagefile]
