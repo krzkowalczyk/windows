@@ -47,7 +47,7 @@ action_class do
 
   def available?
     @available ||= begin
-      cmd = powershell_out("(Get-WindowsFeature #{to_array(new_resource.feature_name).join(',')} | select name).count")
+      cmd = powershell_out("(Get-WindowsFeature #{to_array(new_resource.feature_name).join(',')}).count")
       cmd.stderr.empty? && cmd.stdout.chomp.to_i > 0
     end
   end
