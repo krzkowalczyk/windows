@@ -5,7 +5,7 @@ environment:
 
 branches:
   only:
-    - master
+    - bf_feature_powershell
 
 # Do not build on tags (GitHub only)
 skip_tags: true

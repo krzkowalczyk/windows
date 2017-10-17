@@ -30,6 +30,6 @@ suites:
   - name: font
     run_list:
       - recipe[test::font]
-  - name: pagefile
-    run_list:
-      - recipe[test::pagefile]
+  # - name: pagefile
+  #   run_list:
+  #     - recipe[test::pagefile]
