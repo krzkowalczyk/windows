@@ -5,7 +5,7 @@ environment:
 
 branches:
   only:
-    - master
+    - appveyor
 
 # Do not build on tags (GitHub only)
 skip_tags: true
@@ -34,6 +34,7 @@ test_script:
   - c:\opscode\chefdk\bin\cookstyle --version
   - c:\opscode\chefdk\bin\chef.bat exec foodcritic --version
   - c:\opscode\chefdk\bin\chef.bat exec delivery local all
-  - c:\opscode\chefdk\bin\chef.bat exec kitchen verify
+  - c:\opscode\chefdk\bin\chef.bat exec kitchen diagnose --all
+  - c:\opscode\chefdk\bin\chef.bat exec kitchen verify -l debug
 
 deploy: off
